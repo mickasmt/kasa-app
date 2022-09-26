@@ -1,11 +1,23 @@
-import bannerImg from "../../assets/images/banner-img.jpg";
+import PropTypes from "prop-types";
 
-function Banner() {
+import cliffs from "../../assets/images/banners/cliffs.jpg";
+import mountains from "../../assets/images/banners/mountains.jpg";
+
+const bannersImg = {
+  "home": mountains,
+  "about": cliffs,
+};
+
+function Banner({ name }) {
   return (
     <div>
-      <img src={bannerImg} className="banner-img" alt="banner_img" />
+      <img src={bannersImg[name]} className="banner-img" alt={`${name}`} />
     </div>
   );
 }
+
+Banner.propTypes = {
+  name: PropTypes.string.isRequired,
+};
 
 export default Banner;

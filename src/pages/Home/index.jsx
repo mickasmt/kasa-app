@@ -1,21 +1,20 @@
 import Banner from "../../components/Banner";
 import Card from "../../components/Card";
 import Collapse from "../../components/Collapse";
+
 import data from "../../logements.json";
 
 function Home() {
   return (
     <div>
-      <Banner />
+      <Banner name="home" />
 
       {data.map((logement) => {
-        return <Card id={logement.id} title={logement.title} />;
+        return <Card logement={logement} key={logement.id} />;
       })}
 
       <Collapse title="title test">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, animi
-        consequuntur sint illo deleniti sequi voluptatibus vitae aut ratione
-        corrupti quia itaque at nihil esse ullam nam atque numquam natus.
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium deserunt quaerat iure dolorum dolores provident consequatur, ut magni animi modi fuga quidem quasi. Similique vel atque adipisci. Aperiam, at dignissimos.</p>
       </Collapse>
     </div>
   );
