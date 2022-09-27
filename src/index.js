@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   margin: 0 auto;
   max-width: 1240px;
+  min-height: 100vh;
 
   @media only screen and (max-width: 1240px) {
     padding: 0 20px;
