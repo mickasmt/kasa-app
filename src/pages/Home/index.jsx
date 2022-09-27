@@ -7,7 +7,7 @@ import data from "../../logements.json";
 function Home() {
   return (
     <div>
-      <Banner name="home" />
+      <Banner name="home" title="Chez vous, partout et ailleurs" />
 
       {data.map((logement) => {
         return <Card logement={logement} key={logement.id} />;

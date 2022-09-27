@@ -1,18 +1,50 @@
-import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/icons/logo.svg";
+import colors from "../../utils/style/colors";
+
+const Nav = styled.nav`
+  z-index: 10;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+`;
+
+const Logo = styled.img`
+  height: 68px;
+`;
+
+const LinksWrapper = styled.div``;
+
+const StyledLink = styled(NavLink)`
+  font-size: 24px;
+  margin-right: 57px;
+  text-decoration: none;
+  color: ${colors.primary};
+
+  &.active {
+    text-decoration: underline;
+  }
+
+  &:last-child {
+    margin-right: 0px;
+  }
+`;
 
 function Header() {
   return (
-    <nav>
+    <Nav>
       <Link to="/">
-        <img src={logo} className="kasa-logo" alt="logo" />
+        <Logo src={logo} alt="logo" />
       </Link>
 
-      <div className="nav-links">
-        <Link to="/">Accueil</Link>
-        <Link to="/about">A Propos</Link>
-      </div>
-    </nav>
+      <LinksWrapper>
+        <StyledLink to="/" end>Accueil</StyledLink>
+        <StyledLink to="/about">A Propos</StyledLink>
+      </LinksWrapper>
+    </Nav>
   );
 }
 
