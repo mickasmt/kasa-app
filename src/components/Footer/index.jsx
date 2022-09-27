@@ -1,45 +1,41 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import logo from "../../assets/icons/logo.svg";
-
-const FooterText = styled.p`
-  color: white;
-  font-size: 22px;
-`
-
-const FooterLogo = styled.img`
-  height: 150px;
-  width: 150px;
-  align-self: center;
-  border-radius: 50%;
-`
+import logo from "../../assets/icons/logo-white.svg";
 
 const FooterWrapper = styled.footer`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  padding: 15px;
+  justify-items: center;
+  text-align: center;
+  width: 100%;
+  height: 209px;
+  padding-top: 66px;
+  box-sizing: border-box;
   background-color: #000;
-  border-radius: 30px;
-  width: 300px;
-  height: 300px;
-  transition: 200ms;
-  &:hover {
-    cursor: pointer;
-    box-shadow: 2px 2px 10px #e2e3e9;
-  }
-`
+`;
 
+const FooterLogo = styled.img`
+  height: 40px;
+  width: auto;
+`;
+
+const FooterText = styled.span`
+  color: white;
+  padding: 29px 0;
+  font-size: 24px;
+  line-height: 34px;
+  align-self: center;
+`;
 
 function Footer() {
   return (
-    <footer>
+    <FooterWrapper>
       <Link to="/">
-        <img src={logo} alt="logo" />
+        <FooterLogo src={logo} alt="kasa-logo" />
       </Link>
 
-      <p>© 2020 Kasa. All rights reserved</p>
-    </footer>
+      <FooterText>© 2020 Kasa. All rights reserved</FooterText>
+    </FooterWrapper>
   );
 }
 
