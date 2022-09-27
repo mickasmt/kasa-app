@@ -3,34 +3,40 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import colors from "../../utils/style/colors";
 
-const CardTitle = styled.span`
-  color: black;
-  font-size: 22px;
-  font-weight: normal;
-  align-self: center;
+const CardWrapper = styled.div`
+  width: 340px;
+  height: 340px;
+  border-radius: 10px;
+  background-color: ${colors.primary};
+  overflow: hidden;
+  position: relative;
 `;
 
 const CardImage = styled.img`
-  height: 150px;
-  width: 150px;
-  align-self: center;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 `;
 
-const CardWrapper = styled.div`
+const CardOverlay = styled.div`
+  inset: 0px;
+  position: absolute;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 15px;
-  background-color: ${colors.backgroundLight};
-  border-radius: 30px;
-  width: 300px;
-  height: 300px;
-  transition: 200ms;
-  &:hover {
-    cursor: pointer;
-    box-shadow: 2px 2px 10px #e2e3e9;
-  }
+  justify-content: flex-start;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+`;
+
+const CardTitle = styled.span`
+  color: #fff;
+  padding: 20px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+
+  display: flex;
+  align-items: flex-end;
 `;
 
 function Card({ logement }) {
@@ -38,7 +44,9 @@ function Card({ logement }) {
     <Link to={`/logement/${logement.id}`}>
       <CardWrapper>
         <CardImage src={logement.cover} alt={logement.title} />
-        <CardTitle>{logement.title}</CardTitle>
+        <CardOverlay>
+          <CardTitle>{logement.title}</CardTitle>
+        </CardOverlay>
       </CardWrapper>
     </Link>
   );

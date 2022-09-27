@@ -1,21 +1,32 @@
 import Banner from "../../components/Banner";
 import Card from "../../components/Card";
-import Collapse from "../../components/Collapse";
+
+import styled from "styled-components";
+import colors from "../../utils/style/colors";
 
 import data from "../../logements.json";
+
+const CardsContainer = styled.div`
+  display: grid;
+  grid-gap: 60px;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: 50px 50px; */
+  background-color: ${colors.secondary};
+  border-radius: 25px;
+  overflow: hidden;
+  padding: 40px;
+`;
 
 function Home() {
   return (
     <div>
       <Banner name="home" title="Chez vous, partout et ailleurs" />
 
-      {data.map((logement) => {
-        return <Card logement={logement} key={logement.id} />;
-      })}
-
-      <Collapse title="title test">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium deserunt quaerat iure dolorum dolores provident consequatur, ut magni animi modi fuga quidem quasi. Similique vel atque adipisci. Aperiam, at dignissimos.</p>
-      </Collapse>
+      <CardsContainer>
+        {data.map((logement) => {
+          return <Card logement={logement} key={logement.id} />;
+        })}
+      </CardsContainer>
     </div>
   );
 }
