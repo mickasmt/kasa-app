@@ -27,14 +27,14 @@ function Tags({ tags }) {
   return (
     <div>
       <TagsContainer>
-        {tags.length > 0 && tags.map((tag) => <Tag>{tag}</Tag>)}
+        {tags.length > 0 && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
       </TagsContainer>
     </div>
   );
 }
 
 Tags.propTypes = {
-  tags: PropTypes.object.isRequired,
+  tags: PropTypes.array.isRequired,
 };
 
 export default Tags;

@@ -7,9 +7,10 @@ import Collapse from "../../components/Collapse";
 import Tags from "../../components/UI/Tags";
 import Rating from "../../components/UI/Rating";
 import HostProfile from "../../components/UI/HostProfile";
+import HouseInfos from "../../components/UI/HouseInfos";
 
 const Container = styled.article`
-  /* padding: 30px 0; */
+  padding: 24px 0;
 `;
 
 const Columns = styled.div`
@@ -18,7 +19,15 @@ const Columns = styled.div`
   justify-content: space-between;
 `;
 
+const Flex = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+`;
+
 const CollapseWrapper = styled.div`
+margin-top: 24px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -36,20 +45,18 @@ function House() {
 
       <Container>
         <Columns>
-          <div>
-            <h2>{logement.title}</h2>
-            <span>{logement.location}</span>
-
+          <Flex>
+            <HouseInfos title={logement.title} location={logement.location} />
             <Tags tags={logement.tags} />
-          </div>
+          </Flex>
 
-          <div>
+          <Flex>
             <HostProfile host={logement.host} />
             <Rating rating={logement.rating} />
-          </div>
+          </Flex>
         </Columns>
 
-        <Columns>
+        <CollapseWrapper>
           <Collapse title="Description">
             <p>{logement.description}</p>
           </Collapse>
@@ -61,8 +68,10 @@ function House() {
               })}
             </ul>
           </Collapse>
-        </Columns>
+        </CollapseWrapper>
       </Container>
+
+      {/* <pre>{JSON.stringify(logement, null, 2)}</pre> */}
     </>
   );
 }
