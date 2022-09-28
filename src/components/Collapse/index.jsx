@@ -8,13 +8,14 @@ import arrowDown from "../../assets/icons/arrow-down.svg";
 
 const CollapseWrapper = styled.div`
   overflow: hidden;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 582px;
+  border-radius: ${(props) => (props.page === "about" ? "5px" : "10px")};
+  width: ${(props) => (props.page === "about" ? "100%" : "582px")};
+  /* max-width: 582px; */
 `;
 
 const CollapseHeader = styled.div`
-  height: 52px;
+  /* height: 52px; */
+  height: ${(props) => (props.page === "about" ? "47px" : "52px")};
   color: #fff;
   background: ${colors.primary};
   display: flex;
@@ -49,12 +50,12 @@ const CollapseContent = styled.div`
   }
 `;
 
-function Collapse({ title, children }) {
+function Collapse({ title, children, page }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <CollapseWrapper>
-      <CollapseHeader onClick={() => setIsOpen(!isOpen)}>
+    <CollapseWrapper page={page}>
+      <CollapseHeader page={page} onClick={() => setIsOpen(!isOpen)}>
         <CollapseTitle>{title}</CollapseTitle>
         <img src={isOpen ? arrowUp : arrowDown} alt="arrow" />
       </CollapseHeader>
@@ -66,6 +67,7 @@ function Collapse({ title, children }) {
 Collapse.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
+  page: PropTypes.string,
 };
 
 export default Collapse;

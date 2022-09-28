@@ -7,9 +7,11 @@ import styled from "styled-components";
 import data from "../../data/about.json";
 
 const Container = styled.div`
-  /* padding: 30px 0; */
-  &:nth-child() {
-    
+  width: 1023px;
+  margin: 0 auto;
+
+  > * {
+    margin-bottom: 30px;
   }
 `;
 
@@ -21,7 +23,7 @@ function About() {
       <Container>
         {data.map((info, index) => {
           return (
-            <Collapse title={info.title} key={index}>
+            <Collapse key={index} title={info.title} page="about" >
               <p>{info.content}</p>
             </Collapse>
           );
