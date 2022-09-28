@@ -31,6 +31,24 @@ const CollapseTitle = styled.p`
   font-size: 18px;
 `;
 
+const CollapseContent = styled.div`
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+
+  color: ${colors.primary};
+  background-color: ${colors.tertiary};
+  padding: 30px 20px;
+  height: 100%;
+  /* min-height: 249px; */
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+`;
+
 function Collapse({ title, children }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -40,7 +58,7 @@ function Collapse({ title, children }) {
         <CollapseTitle>{title}</CollapseTitle>
         <img src={isOpen ? arrowUp : arrowDown} alt="arrow" />
       </CollapseHeader>
-      {isOpen && <div>{children}</div>}
+      {isOpen && <CollapseContent>{children}</CollapseContent>}
     </CollapseWrapper>
   );
 }

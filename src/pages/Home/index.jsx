@@ -4,7 +4,7 @@ import Card from "../../components/Card";
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
 
-import data from "../../logements.json";
+import data from "../../data/logements.json";
 
 const CardsContainer = styled.div`
   display: grid;

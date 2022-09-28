@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import data from "../../logements.json";
+import data from "../../data/logements.json";
 import { useParams } from "react-router-dom";
 
 import Carousel from "../../components/Carousel";
@@ -61,7 +61,7 @@ function House() {
             <p>{logement.description}</p>
           </Collapse>
 
-          <Collapse title="Equipements">
+          <Collapse title="Équipements">
             <ul>
               {logement.equipments.map((equipment) => {
                 return <li key={equipment}>{equipment}</li>;
