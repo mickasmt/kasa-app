@@ -11,7 +11,7 @@ const bannersImg = {
 
 const BannerWrapper = styled.div`
   position: relative;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 43px;
   border-radius: 25px;
   overflow: hidden;

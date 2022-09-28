@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import FicheLogement from "./pages/FicheLogement";
+import House from "./pages/House";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
@@ -38,7 +38,7 @@ root.render(
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/logement/:id" element={<FicheLogement />} />
+          <Route path="/logement/:id" element={<House />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </Container>

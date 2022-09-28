@@ -9,7 +9,8 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 0;
+  padding-top: 40px;
+  padding-bottom: 23px;
 `;
 
 const Logo = styled.img`

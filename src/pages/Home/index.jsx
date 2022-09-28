@@ -10,11 +10,10 @@ const CardsContainer = styled.div`
   display: grid;
   grid-gap: 60px;
   grid-template-columns: repeat(3, 1fr);
-  /* grid-template-rows: 50px 50px; */
-  background-color: ${colors.secondary};
-  border-radius: 25px;
-  overflow: hidden;
   padding: 40px;
+  overflow: hidden;
+  border-radius: 25px;
+  background-color: ${colors.secondary};
 `;
 
 function Home() {
