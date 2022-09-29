@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
 import styled, { createGlobalStyle } from "styled-components";
+import ScrollToTop from "./utils/ScrollToTop";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -33,6 +34,7 @@ root.render(
   <React.StrictMode>
     <Router>
       <GlobalStyle />
+      <ScrollToTop />
       <Container>
         <Header />
         <Routes>
