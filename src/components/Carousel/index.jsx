@@ -6,6 +6,7 @@ const CarouselWrapper = styled.div`
   border-radius: 25px;
   overflow: hidden;
   height: 415px;
+  margin-top: 20px;
 `;
 
 const CarouselImage = styled.img`

@@ -10,17 +10,21 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding-top: 40px;
-  padding-bottom: 23px;
+  /* padding-bottom: 20px; */
 `;
 
 const Logo = styled.img`
   height: 68px;
 `;
 
-const LinksWrapper = styled.div``;
+const LinksWrapper = styled.div`
+  flex-shrink: 0;
+`;
 
 const StyledLink = styled(NavLink)`
   font-size: 24px;
+  font-weight: 500;
+  line-height: 34px;
   margin-right: 57px;
   text-decoration: none;
   color: ${colors.primary};
@@ -42,7 +46,9 @@ function Header() {
       </Link>
 
       <LinksWrapper>
-        <StyledLink to="/" end>Accueil</StyledLink>
+        <StyledLink to="/" end>
+          Accueil
+        </StyledLink>
         <StyledLink to="/about">A Propos</StyledLink>
       </LinksWrapper>
     </Nav>

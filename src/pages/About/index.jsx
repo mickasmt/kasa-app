@@ -11,7 +11,7 @@ const Container = styled.div`
   margin: 0 auto;
 
   > * {
-    margin-bottom: 30px;
+    margin-top: 31px;
   }
 `;
 

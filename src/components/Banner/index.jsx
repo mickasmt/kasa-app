@@ -10,12 +10,11 @@ const bannersImg = {
 };
 
 const BannerWrapper = styled.div`
-  position: relative;
-  margin-top: 40px;
-  margin-bottom: 43px;
-  border-radius: 25px;
-  overflow: hidden;
   height: 223px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 25px;
+  margin-top: ${(props) => (props.page === "about" ? "44px" : "63px")};
 `;
 
 const BannerImage = styled.img`
@@ -41,9 +40,10 @@ const BannerText = styled.p`
 `;
 
 function Banner({ name, title }) {
+  console.log(name);
   return (
-    <BannerWrapper>
-      <BannerImage src={bannersImg[name]} alt={name} />
+    <BannerWrapper page={name}>
+      <BannerImage src={bannersImg[name]} alt={'banner-'+name} />
 
       <BannerContainer>
       {title && <BannerText>{title}</BannerText>}

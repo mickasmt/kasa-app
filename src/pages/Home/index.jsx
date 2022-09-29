@@ -10,6 +10,7 @@ const CardsContainer = styled.div`
   display: grid;
   grid-gap: 60px;
   grid-template-columns: repeat(3, 1fr);
+  margin: 43px 0;
   padding: 40px;
   overflow: hidden;
   border-radius: 25px;
