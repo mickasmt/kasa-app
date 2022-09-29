@@ -1,5 +1,9 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+
+import arrowLeft from "../../assets/icons/arrow-left.svg";
+import arrowRight from "../../assets/icons/arrow-right.svg";
 
 const CarouselWrapper = styled.div`
   position: relative;
@@ -15,32 +19,64 @@ const CarouselImage = styled.img`
   object-fit: cover;
 `;
 
-const BannerContainer = styled.div`
+const CarouselContainer = styled.div`
   position: absolute;
   inset: 0px;
   display: flex;
-  justify-content: center;
+  padding: 25px 23.36px;
   align-items: center;
-  background: rgba(0, 0, 0, 0.3);
+  justify-content: space-between;
 `;
 
-const BannerText = styled.p`
+const CarouselArrow = styled.img`
+  width: 46.68px;
+  height: 79.2px;
+`;
+
+const CarouselText = styled.span`
   color: #fff;
-  font-size: 48px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
+  line-height: 26px;
+  align-self: flex-end;
 `;
 
 function Carousel({ images }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const plusSlides = (n) => {
+    let index;
+
+    if (n === 1 || n === -1) {
+      index = currentIndex + n;
+    }
+
+    // check up loop
+    if (index >= images.length) {
+      index = 0;
+    }
+
+    if (index < 0) {
+      index = images.length - 1;
+    }
+
+    setCurrentIndex(index);
+  };
+
   return (
     <CarouselWrapper>
-      {images.map((image, index) => {
-        return <CarouselImage src={image} alt={image} key={index} />;
-      })}
+      <CarouselImage src={images[currentIndex]} alt={"silde-" + currentIndex} />
 
-      {/* <BannerContainer>
-      {title && <BannerText>{title}</BannerText>}
-      </BannerContainer> */}
+      <CarouselContainer>
+        <CarouselArrow src={arrowLeft} alt="" onClick={() => plusSlides(-1)} />
+
+        <CarouselText>
+          {currentIndex + 1}/{images.length}
+        </CarouselText>
+
+        <CarouselArrow src={arrowRight} alt="" onClick={() => plusSlides(1)} />
+      </CarouselContainer>
     </CarouselWrapper>
   );
 }
