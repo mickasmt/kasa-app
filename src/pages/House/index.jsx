@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import data from "../../data/logements.json";
 import { useParams } from "react-router-dom";
 
@@ -10,34 +9,17 @@ import Rating from "../../components/UI/Rating";
 import HouseInfos from "../../components/UI/HouseInfos";
 import HostProfile from "../../components/UI/HostProfile";
 
-const Container = styled.article`
-  padding: 30px 0 24px;
-`;
-
-const Columns = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-const Flex = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-`;
-
-const CollapseWrapper = styled.div`
-  margin-top: 24px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
+import {
+  Container,
+  Columns,
+  CollapseWrapper,
+  InfosWrapper,
+  ProfilWrapper,
+} from "./styled";
 
 function House() {
   // get ID from url
   const params = useParams();
-
   const logement = data.find((lgmt) => lgmt.id === params.id);
 
   if (!logement) return <Error />;
@@ -48,15 +30,15 @@ function House() {
 
       <Container>
         <Columns>
-          <Flex>
+          <InfosWrapper>
             <HouseInfos title={logement.title} location={logement.location} />
             <Tags tags={logement.tags} />
-          </Flex>
+          </InfosWrapper>
 
-          <Flex>
+          <ProfilWrapper>
             <HostProfile host={logement.host} />
             <Rating rating={logement.rating} />
-          </Flex>
+          </ProfilWrapper>
         </Columns>
 
         <CollapseWrapper>
@@ -73,8 +55,6 @@ function House() {
           </Collapse>
         </CollapseWrapper>
       </Container>
-
-      {/* <pre>{JSON.stringify(logement, null, 2)}</pre> */}
     </>
   );
 }

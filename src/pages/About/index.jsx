@@ -7,7 +7,8 @@ import styled from "styled-components";
 import data from "../../data/about.json";
 
 const Container = styled.div`
-  width: 1023px;
+  width: 100%;
+  max-width: 1023px;
   margin: 0 auto;
 
   > * {

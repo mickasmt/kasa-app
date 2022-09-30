@@ -31,6 +31,7 @@ const CarouselContainer = styled.div`
 const CarouselArrow = styled.img`
   width: 46.68px;
   height: 79.2px;
+  cursor: pointer;
 `;
 
 const CarouselText = styled.span`
