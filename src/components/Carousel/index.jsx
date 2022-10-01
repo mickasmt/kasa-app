@@ -1,47 +1,15 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import {
+  CarouselWrapper,
+  CarouselContainer,
+  CarouselImage,
+  CarouselArrow,
+  CarouselText,
+} from "./styled";
 
 import arrowLeft from "../../assets/icons/arrow-left.svg";
 import arrowRight from "../../assets/icons/arrow-right.svg";
-
-const CarouselWrapper = styled.div`
-  position: relative;
-  border-radius: 25px;
-  overflow: hidden;
-  height: 415px;
-  margin-top: 20px;
-`;
-
-const CarouselImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-const CarouselContainer = styled.div`
-  position: absolute;
-  inset: 0px;
-  display: flex;
-  padding: 25px 23.36px;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const CarouselArrow = styled.img`
-  width: 46.68px;
-  height: 79.2px;
-  cursor: pointer;
-`;
-
-const CarouselText = styled.span`
-  color: #fff;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 26px;
-  align-self: flex-end;
-`;
 
 function Carousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);

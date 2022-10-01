@@ -2,7 +2,12 @@ import styled from "styled-components";
 import screens from "../../utils/style/screens";
 
 const Container = styled.article`
-  padding: 30px 0 24px;
+  padding-top: 15px;
+  padding-bottom: 24px;
+  
+  @media ${screens.laptop} {
+    padding-top: 30px;
+  }
 `;
 
 const Columns = styled.div`
@@ -27,22 +32,29 @@ const InfosWrapper = styled.div`
 
 const ProfilWrapper = styled.div`
   display: flex;
+  padding: 16px 0;
+  vertical-align: middle;
   flex-direction: row-reverse;
   justify-content: space-between;
-  align-items: center;
 
   @media ${screens.laptop} {
+    padding: 0;
     flex-direction: column;
   }
 `;
 
 const CollapseWrapper = styled.div`
-  margin-top: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  
+  > * {
+    margin-bottom: 20px;
+  }
+  
   @media ${screens.laptop} {
+    margin-top: 24px;
+    gap: 40px;
     flex-direction: row;
   }
 `;

@@ -1,22 +1,8 @@
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import { RatingContainer, Star } from "./styled";
 
 import starIcon from "../../../assets/icons/star.svg";
 import starActiveIcon from "../../../assets/icons/star-active.svg";
-
-const RatingContainer = styled.div`
-  display: flex;
-  align-items: center;
-  align-self: flex-end;
-  justify-content: center;
-`;
-
-const Star = styled.img`
-  width: 30px;
-  height: 30px;
-  margin-left: 10px;
-  background-image: ${starIcon};
-`;
 
 function Rating({ rating }) {
   const array = Array(5).fill(0);

@@ -2,7 +2,7 @@ import Banner from "../../components/Banner";
 import Collapse from "../../components/Collapse";
 
 import styled from "styled-components";
-// import colors from "../../utils/style/colors";
+import screens from "../../utils/style/screens";
 
 import data from "../../data/about.json";
 
@@ -12,7 +12,13 @@ const Container = styled.div`
   margin: 0 auto;
 
   > * {
-    margin-top: 31px;
+    margin-top: 20px;
+  }
+
+  @media ${screens.laptop} {
+    > * {
+      margin-top: 31px;
+    }
   }
 `;
 
@@ -24,7 +30,7 @@ function About() {
       <Container>
         {data.map((info, index) => {
           return (
-            <Collapse key={index} title={info.title} page="about" >
+            <Collapse key={index} title={info.title} page="about">
               <p>{info.content}</p>
             </Collapse>
           );

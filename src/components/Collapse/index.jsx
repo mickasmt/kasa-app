@@ -4,6 +4,7 @@ import {
   CollapseWrapper,
   CollapseHeader,
   CollapseTitle,
+  CollapseArrow,
   CollapseContent,
 } from "./styled";
 
@@ -17,7 +18,7 @@ function Collapse({ title, children, page }) {
     <CollapseWrapper page={page}>
       <CollapseHeader page={page} onClick={() => setIsOpen(!isOpen)}>
         <CollapseTitle>{title}</CollapseTitle>
-        <img src={isOpen ? arrowUp : arrowDown} alt="arrow" />
+        <CollapseArrow src={isOpen ? arrowUp : arrowDown} alt="arrow" />
       </CollapseHeader>
       {isOpen && <CollapseContent>{children}</CollapseContent>}
     </CollapseWrapper>

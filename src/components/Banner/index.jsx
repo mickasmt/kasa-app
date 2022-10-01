@@ -18,7 +18,7 @@ const bannersImg = {
 function Banner({ name, title }) {
   return (
     <BannerWrapper page={name}>
-      <BannerImage src={bannersImg[name]} alt={"banner-" + name} />
+      {/* <BannerImage src={bannersImg[name]} alt={"banner-" + name} /> */}
 
       <BannerContainer>
         {title && <BannerText>{title}</BannerText>}
