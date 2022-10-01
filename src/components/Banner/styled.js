@@ -1,24 +1,33 @@
 import styled from "styled-components";
 import screens from "../../utils/style/screens";
 
+// images
+import cliffs from "../../assets/images/banners/cliffs.jpg";
+import mountains from "../../assets/images/banners/mountains.jpg";
+
+const bannersImg = {
+  home: cliffs,
+  about: mountains,
+};
+
 const BannerWrapper = styled.div`
   height: ${(props) => (props.page === "home" ? "111px" : "223px")};
   overflow: hidden;
   position: relative;
   border-radius: 10px;
+  mix-blend-mode: darken;
   margin-top: ${(props) => (props.page === "about" ? "17px" : "16px")};
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(${(props) => bannersImg[props.page]});
   
   @media ${screens.laptop} {
     height: 223px;
     border-radius: 25px;
     margin-top: ${(props) => (props.page === "about" ? "44px" : "63px")};
   }
-`;
-
-const BannerImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `;
 
 const BannerContainer = styled.div`
@@ -44,6 +53,11 @@ const BannerText = styled.p`
   letter-spacing: 0em;
   font-style: normal;
   font-weight: 500;
+  white-space: pre-line;
+  
+  @media ${screens.tablet} {
+    white-space: nowrap;
+  }
   
   @media ${screens.laptop} {
     font-size: 48px;
@@ -51,4 +65,4 @@ const BannerText = styled.p`
   }
 `;
 
-export { BannerWrapper, BannerImage, BannerContainer, BannerText };
+export { BannerWrapper, BannerContainer, BannerText };

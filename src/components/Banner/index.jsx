@@ -1,27 +1,22 @@
 import PropTypes from "prop-types";
-import {
-  BannerWrapper,
-  BannerImage,
-  BannerContainer,
-  BannerText,
-} from "./styled";
-
-// images
-import cliffs from "../../assets/images/banners/cliffs.jpg";
-import mountains from "../../assets/images/banners/mountains.jpg";
-
-const bannersImg = {
-  home: cliffs,
-  about: mountains,
-};
+import { BannerWrapper, BannerContainer, BannerText } from "./styled";
+import useWindowSize from "../../utils/useWindowSize";
 
 function Banner({ name, title }) {
+  let sentence;
+  const screenWidth = useWindowSize().innerWidth;
+
+  if (title && screenWidth <= 640) {
+    //tablet size = 640px
+    sentence = title.replace(",", ",\n");
+  } else {
+    sentence = title;
+  }
+
   return (
     <BannerWrapper page={name}>
-      {/* <BannerImage src={bannersImg[name]} alt={"banner-" + name} /> */}
-
       <BannerContainer>
-        {title && <BannerText>{title}</BannerText>}
+        {title && <BannerText>{sentence}</BannerText>}
       </BannerContainer>
     </BannerWrapper>
   );
@@ -33,7 +28,7 @@ Banner.propTypes = {
 };
 
 Banner.defaultProps = {
-  name: bannersImg["home"],
+  name: "home",
 };
 
 export default Banner;

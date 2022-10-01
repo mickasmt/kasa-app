@@ -1,31 +1,6 @@
-import styled from "styled-components";
 import { Link } from "react-router-dom";
 import logo from "../../assets/icons/logo-white.svg";
-
-const FooterWrapper = styled.footer`
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  text-align: center;
-  width: 100%;
-  height: 209px;
-  padding-top: 66px;
-  box-sizing: border-box;
-  background-color: #000;
-`;
-
-const FooterLogo = styled.img`
-  height: 40px;
-  width: auto;
-`;
-
-const FooterText = styled.span`
-  color: white;
-  padding: 29px 0;
-  font-size: 24px;
-  line-height: 34px;
-  align-self: center;
-`;
+import { FooterWrapper, FooterLogo, FooterText } from "./styled";
 
 function Footer() {
   return (

@@ -26,8 +26,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Container = styled.div`
-  min-height: 100vh;
   padding: 0 20px;
+  min-height: 100vh;
   
   @media ${screens.desktop} {
     padding: 0;
