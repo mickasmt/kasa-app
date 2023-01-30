@@ -4,10 +4,12 @@ import screens from "../../utils/style/screens";
 // images
 import cliffs from "../../assets/images/banners/cliffs.jpg";
 import mountains from "../../assets/images/banners/mountains.jpg";
+import mountainsMobile from "../../assets/images/banners/mountains-mobile.jpg";
 
 const bannersImg = {
   home: cliffs,
   about: mountains,
+  aboutMobile: mountainsMobile,
 };
 
 const BannerWrapper = styled.div`
@@ -21,12 +23,16 @@ const BannerWrapper = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(${(props) => bannersImg[props.page]});
+  background-image: url(${(props) => (props.page === "about" ? bannersImg["aboutMobile"] : bannersImg[props.page])});
   
   @media ${screens.laptop} {
     height: 223px;
     border-radius: 25px;
     margin-top: ${(props) => (props.page === "about" ? "44px" : "63px")};
+  }
+  
+  @media ${screens.mobile} {
+    background-image: url(${(props) => bannersImg[props.page]});
   }
 `;
 
