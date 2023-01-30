@@ -38,13 +38,13 @@ function Carousel({ images }) {
       <CarouselImage src={images[currentIndex]} alt={"silde-" + currentIndex} />
 
       <CarouselContainer>
-        <CarouselArrow src={arrowLeft} alt="" onClick={() => plusSlides(-1)} />
+        {images.length > 1 && <CarouselArrow src={arrowLeft} alt="" onClick={() => plusSlides(-1)} />}
 
         <CarouselText>
           {currentIndex + 1}/{images.length}
         </CarouselText>
 
-        <CarouselArrow src={arrowRight} alt="" onClick={() => plusSlides(1)} />
+        {images.length > 1 && <CarouselArrow src={arrowRight} alt="" onClick={() => plusSlides(1)} />}
       </CarouselContainer>
     </CarouselWrapper>
   );
