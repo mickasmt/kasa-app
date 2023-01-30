@@ -40,9 +40,11 @@ function Carousel({ images }) {
       <CarouselContainer>
         {images.length > 1 && <CarouselArrow src={arrowLeft} alt="" onClick={() => plusSlides(-1)} />}
 
-        <CarouselText>
-          {currentIndex + 1}/{images.length}
-        </CarouselText>
+        {images.length > 1 && 
+          <CarouselText>
+            {currentIndex + 1}/{images.length}
+          </CarouselText>
+        }
 
         {images.length > 1 && <CarouselArrow src={arrowRight} alt="" onClick={() => plusSlides(1)} />}
       </CarouselContainer>
